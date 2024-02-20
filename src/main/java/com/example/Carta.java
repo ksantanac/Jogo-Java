@@ -11,15 +11,9 @@ public class Carta {
 
     public String imagePath() {
 
-        String stringNumero = "" + numero;
+        String[] numeros = { "", "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        return "classic-cards/" + numeros[numero] + naipe + ".png";
         
-        if (numero == 1) stringNumero = "Ace";
-        if (numero == 11) stringNumero = "Jack";
-        if (numero == 12) stringNumero = "Queen";
-        if (numero == 13) stringNumero = "King";
-
-
-        return "classic-cards/" + numero + naipe + ".png";
     }
 
     public int getNumero() {

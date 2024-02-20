@@ -25,24 +25,19 @@ public class Jogo {
     public boolean acabou() {
 
         var osDoisPararam = jogador.parou() && computador.parou();
-        var jogadorEstourou = jogador.getPontos() > 21;
-        var computadorEstourou = computador.getPontos() > 21;
-
-        return osDoisPararam || jogadorEstourou  || computadorEstourou;
+        return osDoisPararam || jogador.estorou() || computador.estorou();
 
     }
 
     public String resultado() {
 
         var pontuacaoIgual = jogador.getPontos() == computador.getPontos();
-        var jogadorEstourou = jogador.getPontos() > 21;
-        var computadorEstourou = computador.getPontos() > 21;
-        var osDoisEstouraram = jogadorEstourou && computadorEstourou;
+        var osDoisEstouraram = jogador.estorou() && computador.estorou();
         var jogadorTemMaisPontos = jogador.getPontos() > computador.getPontos();
         
         if (pontuacaoIgual || osDoisEstouraram) return "Empatou";
 
-        if (!jogadorEstourou && (jogadorTemMaisPontos || computadorEstourou)) return "Você ganhou!";
+        if (!jogador.estorou() && (jogadorTemMaisPontos || computador.estorou())) return "Você ganhou!";
         return "Você Perdeu!";
 
     }
