@@ -10,6 +10,15 @@ public class Carta {
     }
 
     public String imagePath() {
+
+        String stringNumero = "" + numero;
+        
+        if (numero == 1) stringNumero = "Ace";
+        if (numero == 11) stringNumero = "Jack";
+        if (numero == 12) stringNumero = "Queen";
+        if (numero == 13) stringNumero = "King";
+
+
         return "classic-cards/" + numero + naipe + ".png";
     }
 
